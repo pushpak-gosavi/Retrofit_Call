@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pushpak.retrofitcall.BuildConfig
 import com.pushpak.retrofitcall.api.APICall
 import com.pushpak.retrofitcall.api.APIExecuter
 import com.pushpak.retrofitcall.common.Resources
@@ -52,7 +53,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun getNews(){
-            news(country = "us", apiKey = "7753f88a765e488792f2aaddb790703b").onEach {result->
+            news(country = "us", apiKey = BuildConfig.NEWS_API_KEY).onEach {result->
                 when(result){
                     is Resources.Loading -> {
                       _state.value =  NewsDataState(isLoading = true)
