@@ -1,6 +1,7 @@
 package com.pushpak.retrofitcall.viewmodel
 
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,10 +28,15 @@ class MainViewModel @Inject constructor(
 ): ViewModel() {
 
     private val _state= mutableStateOf(NewsDataState())
+    val newMutable = mutableIntStateOf(0)
     val state:MutableState<NewsDataState> = _state
      init {
          getNews()
      }
+
+    fun increase(){
+        newMutable.value ++
+    }
 
 
     fun news(country:String , apiKey:String) : Flow<Resources<Articles>> = flow{

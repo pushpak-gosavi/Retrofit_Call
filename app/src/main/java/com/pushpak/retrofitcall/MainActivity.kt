@@ -1,6 +1,8 @@
 package com.pushpak.retrofitcall
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -9,12 +11,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableIntState
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,7 +40,6 @@ import kotlinx.coroutines.Dispatchers
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             RetrofitCallTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -54,6 +61,7 @@ fun Greeting(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
+
     Box(modifier = Modifier.fillMaxSize()) {
         state.data?.let {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -69,6 +77,11 @@ fun Greeting(
         if (state.error.isNotBlank()) {
             Text(color = MaterialTheme.colorScheme.error, text = state.error)
         }
+    /*    Button(onClick = {
+            viewModel.increase()
+            Log.d("mutableValue", viewModel.newMutable.value.toString())
+        }) { Text("Click Me from Mutable State ${viewModel.newMutable.value}") }*/
+
     }
 
 }
