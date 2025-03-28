@@ -15,6 +15,13 @@ hilt-android = "2.50"
 hilt-android-compiler = "2.50"
 hilt-navigation-compose="1.2.0"
 
+mock-core ="5.12.0"
+mock-kotlin="5.2.1"
+junit-jupiter="5.10.0"
+coroutines-test = "1.7.3"
+core-testing="2.2.0"
+
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -40,6 +47,13 @@ hilt-compiler = { module = "com.google.dagger:hilt-compiler",version.ref = "hilt
 hilt-android = {module="com.google.dagger:hilt-android", version.ref="hilt-android"}
 hilt-android-compler = {module = "com.google.dagger:hilt-android-compiler", version.ref="hilt-android"}
 hilt-navigation-compose = {module="androidx.hilt:hilt-navigation-compose" , version.ref="hilt-navigation-compose"}
+
+mockito-core = {module ="org.mockito:mockito-core", version.ref="mock-core"}
+mockito-kotlin = {module="org.mockito.kotlin:mockito-kotlin" , version.ref ="mock-kotlin"}
+junit-jupiter ={module = "org.junit.jupiter:junit-jupiter", version.ref="junit-jupiter"}
+corutines-test={module="org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref="coroutines-test"}
+core-testing={module="androidx.arch.core:core-testing", version.ref="core-testing"}
+
 
 
 
