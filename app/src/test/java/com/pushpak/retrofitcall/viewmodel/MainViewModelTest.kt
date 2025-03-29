@@ -56,5 +56,8 @@ class MainViewModelTest {
         assertEquals(viewModel.mutableStateFlow.value, name)
     }
 
-
+    @Test
+    fun `initial_test_flow`(){
+        assertEquals(viewModel.mutableStateFlow.value, "")
+    }
 }
