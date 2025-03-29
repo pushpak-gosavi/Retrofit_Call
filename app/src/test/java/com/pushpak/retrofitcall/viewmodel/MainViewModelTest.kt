@@ -48,4 +48,13 @@ class MainViewModelTest {
 
 
     }
+
+    @Test
+    fun `change value of mutable State flow`(){
+        val name = "Pushpak"
+        viewModel.changeTheMutableStateFlowValue(name)
+        assertEquals(viewModel.mutableStateFlow.value, name)
+    }
+
+
 }

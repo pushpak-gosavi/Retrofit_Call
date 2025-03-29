@@ -34,11 +34,13 @@ class MainViewModel @Inject constructor(
 
     private val _stateFlow = MutableStateFlow("")
 
+    val mutableStateFlow = _stateFlow
+
     fun changeTheMutableStateFlowValue(name:String){
         _stateFlow.value = name
     }
      init {
-         getNews()
+        // getNews()
      }
 
     fun increase(){
