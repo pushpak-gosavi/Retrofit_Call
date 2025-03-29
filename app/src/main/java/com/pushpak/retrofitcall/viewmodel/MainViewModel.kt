@@ -31,8 +31,16 @@ class MainViewModel @Inject constructor(
     private val _state= mutableStateOf(NewsDataState())
     val newMutable = mutableIntStateOf(0)
     val state:MutableState<NewsDataState> = _state
+
+    private val _stateFlow = MutableStateFlow("")
+
+    val mutableStateFlow = _stateFlow
+
+    fun changeTheMutableStateFlowValue(name:String){
+        _stateFlow.value = name
+    }
      init {
-         getNews()
+        // getNews()
      }
 
     fun increase(){
